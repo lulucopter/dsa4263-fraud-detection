@@ -61,7 +61,7 @@ env
 *.engine
 
 # dev
-dev.ipynb
+# dev.ipynb
 *.csv
 !vertices/*/*
 
