@@ -4,3 +4,5 @@ matplotlib
 scikit-learn
 plotly
 numpy
+missingno
+scikit-learn
