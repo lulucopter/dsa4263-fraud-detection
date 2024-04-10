@@ -6,3 +6,5 @@ plotly
 numpy
 missingno
 scikit-learn
+imblearn
+xgboost
