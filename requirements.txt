@@ -8,3 +8,4 @@ missingno
 scikit-learn
 imblearn
 xgboost
+category_encoders
