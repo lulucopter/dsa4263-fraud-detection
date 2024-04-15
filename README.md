@@ -19,7 +19,8 @@ Hackathon for Fraud Detection
     - [Data Preparation](#Data-Preparation)
     - [Models](#Models)
 - [Results](#Results)
-    - [Conclusions](#Conclusions)
+    - [Model Comparison](#Model-Comparison)
+    - [Model Explainability](#Model-Explanability)
     - [Model Deployment Considerations](#Model-Deployment-Consideration)
     - [Model Deployment Architecture](#Model-Deployment-Architecture)
 
@@ -151,20 +152,32 @@ A data dictionary has been provided [here](./datadictionary.txt)
 |No        | SVM   |   0.75   |   0.10    |  0.39  |   0.16   |  0.646  |
 |No        | NB    |   0.75   |   0.14    |  0.63  |   0.23   |  0.783  |
 |No        | DT    |   0.79   |   0.15    |  0.56  |   0.24   |  0.681  |
-|No        | RF    | **0.85** | **0.19**  |  0.48  | **0.27** |**0.830**|
-|No        |XGBoost|   0.83   |   0.18    |  0.53  | **0.27** |  0.820  |
+|No        | RF    |   0.77   |   0.17    |  0.69  | **0.27** |**0.830**|
+|No        |XGBoost| **0.83** | **0.18**  |  0.53  | **0.27** |  0.820  |
 |SMOTE     | LR    |   0.71   |   0.13    |  0.67  |   0.21   |  0.771  |
 |SMOTE     | SVM   |   0.31   |   0.07    |  0.81  |   0.12   |  0.621  |
 |SMOTE     | NB    |   0.48   |   0.09    |**0.90**|   0.17   |  0.755  |
 |SMOTE     | DT    |   0.83   |   0.17    |  0.48  |   0.25   |  0.724  |
-|SMOTE     | RF    |   0.85   |   0.18    |  0.44  | **0.26** |**0.815**|
+|SMOTE     | RF    |   0.85   |   0.19    |  0.44  | **0.26** |**0.815**|
 |SMOTE     |XGBoost| **0.91** | **0.26**  |  0.23  |   0.24   |  0.804  |
 |SMOTE + Tomek| LR |   0.71   |   0.13    |  0.66  |   0.22   |  0.769  |
 |SMOTE + Tomek| SVM|   0.31   |   0.07    |  0.81  |   0.12   |  0.616  |
 |SMOTE + Tomek| NB |   0.47   |   0.09    |**0.90**|   0.17   |  0.754  |
-|SMOTE + Tomek| DT |   0.84   |   0.17    |  0.46  |   0.25   |  0.702  |
-|SMOTE + Tomek| RF |   0.86   |   0.19    |  0.44  |   0.25   |**0.817**|
+|SMOTE + Tomek| DT |   0.84   |   0.17    |  0.46  | **0.25** |  0.702  |
+|SMOTE + Tomek| RF |   0.85   |   0.18    |  0.42  | **0.25** |**0.817**|
 |SMOTE + Tomek|XGBoost|**0.92**|**0.24**  |  0.17  |   0.20   |  0.807  |
+
+### Model Explainability
+
+Surprisingly, the best performing model in terms of F1 Score were RF and XGB without oversampling. To understand how our model were making their classifications, we utilised Shapley values.
+
+|![RF Shapley](./figures/shapley/shapley_rf.png)|
+|:--:|
+|Shapley values for Random Forest|
+
+|![XGB Shapley](./figures/shapley/shapley_xgboost.png)|
+|:--:|
+|Shapley values for XGBoost|
 
 ### Model Deployment Consideration
 1) Ability to adjust fraud risk tolerance thresholds. To account for different risk factors across locations, time periods, and other factors such as financials, we obtain the class probabilities, allowing a customized threshold to be set to flag out a claim as fradulent.
