@@ -180,4 +180,4 @@ A data dictionary has been provided [here](./datadictionary.txt)
 ### Model Deployment Architecture
 
 In light of the considerations above, we are proposing the below architecture. 
-![Architecture](./Figures/Fraud_Detection.png)
+![Architecture](./figures/Fraud_Detection.png)
